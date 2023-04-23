@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  background-color: #f1f6f9;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+main {
+  max-width: 600px;
+  padding: 40px;
+  background-color: #9ba4b5;
+}

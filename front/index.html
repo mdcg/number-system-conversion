@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="text-center">
+    <div class="container-fluid">
+        <main class="w-100 m-auto shadow rounded">
+            <div class="number-convertion">
+                <form action="">
+                    <div class="row text-start mb-4">
+                        <div class="col-md-12">
+                            <label for="numberToBeConverted" class="form-label">Número a ser convertido</label>
+                            <input type="text" class="form-control shadow" id="numberToBeConverted">
+                        </div>
+                    </div>
+                    <div class="row text-start mb-4">
+                        <div class="col-md-6">
+                            <label for="numberToBeConvertedBase" class="form-label">Base do número informado</label>
+                            <select class="form-select shadow" aria-label="Base do número" id="numberToBeConvertedBase">
+                                <option value="decimal">Decimal</option>
+                                <option value="binary">Binária</option>
+                                <option value="octal">Octal</option>
+                                <option value="hexadecimal">Hexadecimal</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="numberToBeConvertedBase" class="form-label">Base a ser convertida</label>
+                            <select class="form-select shadow" aria-label="Base do número" id="numberToBeConvertedBase">
+                                <option value="decimal">Decimal</option>
+                                <option value="binary">Binária</option>
+                                <option value="octal">Octal</option>
+                                <option value="hexadecimal">Hexadecimal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <button class="btn btn-primary shadow" type="button">Converter</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
