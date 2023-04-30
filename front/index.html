@@ -14,44 +14,46 @@
 <body class="text-center">
     <div class="container-fluid">
         <main class="w-100 m-auto shadow rounded">
-            <div class="number-convertion">
-                <form action="">
-                    <div class="row text-start mb-4">
-                        <div class="col-md-12">
-                            <label for="numberToBeConverted" class="form-label">Número a ser convertido</label>
-                            <input type="text" class="form-control shadow" id="numberToBeConverted">
-                        </div>
+            <div class="number-conversion">
+                <div class="row text-start mb-4">
+                    <div class="col-md-12">
+                        <label for="numberToBeConverted" class="form-label">Número a ser convertido</label>
+                        <input type="text" class="form-control shadow" id="numberToBeConverted">
                     </div>
-                    <div class="row text-start mb-4">
-                        <div class="col-md-6">
-                            <label for="numberToBeConvertedBase" class="form-label">Base do número informado</label>
-                            <select class="form-select shadow" aria-label="Base do número" id="numberToBeConvertedBase">
-                                <option value="decimal">Decimal</option>
-                                <option value="binary">Binária</option>
-                                <option value="octal">Octal</option>
-                                <option value="hexadecimal">Hexadecimal</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="numberToBeConvertedBase" class="form-label">Base a ser convertida</label>
-                            <select class="form-select shadow" aria-label="Base do número" id="numberToBeConvertedBase">
-                                <option value="decimal">Decimal</option>
-                                <option value="binary">Binária</option>
-                                <option value="octal">Octal</option>
-                                <option value="hexadecimal">Hexadecimal</option>
-                            </select>
-                        </div>
+                </div>
+                <div class="row text-start mb-4">
+                    <div class="col-md-6">
+                        <label for="numberFromBase" class="form-label">Base do número informado</label>
+                        <select class="form-select shadow" aria-label="Base do número" id="numberFromBase">
+                            <option value="DECIMAL">Decimal</option>
+                            <option value="BINARY">Binária</option>
+                            <option value="OCTAL">Octal</option>
+                            <option value="HEXADECIMAL">Hexadecimal</option>
+                        </select>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-12">
-                            <button class="btn btn-primary shadow" type="button">Converter</button>
-                        </div>
+                    <div class="col-md-6">
+                        <label for="numberToBase" class="form-label">Base a ser convertida</label>
+                        <select class="form-select shadow" aria-label="Base do número" id="numberToBase">
+                            <option value="DECIMAL">Decimal</option>
+                            <option value="BINARY">Binária</option>
+                            <option value="OCTAL">Octal</option>
+                            <option value="HEXADECIMAL">Hexadecimal</option>
+                        </select>
                     </div>
-                </form>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary shadow" type="submit" id="convert">Converter</button>
+                    </div>
+                </div>
             </div>
         </main>
+        <div id="response">
+
+        </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
