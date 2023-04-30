@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = "System for converting numbers from certain bases to others."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+sanic = "^23.3.0"
+pytest = "^7.3.1"
+black = "^23.3.0"
+sanic-ext = "^23.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
