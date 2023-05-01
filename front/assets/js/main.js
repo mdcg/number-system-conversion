@@ -1,37 +1,68 @@
-let numberConversion = () => {
-    const api_url = 'http://localhost:1337/convert'
+const resultModal = document.getElementById("resultModal");
+const convertButton = document.getElementById("convert");
+const closeButton = document.getElementById("close");
+const spinner = document.getElementById("spinner");
 
-    const fromBase = document.getElementById('numberFromBase')
-    const toBase = document.getElementById('numberToBase')
-    const value = document.getElementById('numberToBeConverted')
-    const responseModal = document.getElementById('response')
+const numberConversion = () => {
+  spinner.style.display = "inline-block";
 
-    let request = new XMLHttpRequest()
-    let body = JSON.stringify({
-        'fromBase': fromBase.value,
-        'toBase': toBase.value,
-        'value': value.value
+  const fromBase = document.getElementById("numberFromBase").value;
+  const toBase = document.getElementById("numberToBase").value;
+  const value = document.getElementById("numberToBeConverted").value;
+  const responseText = document.getElementById("response");
+
+  const body = JSON.stringify({
+    fromBase,
+    toBase,
+    value,
+  });
+
+  makeRequest(body)
+    .then((response) => {
+      if (response.status === 200) {
+        responseText.innerText = JSON.parse(response.response)["value"];
+      } else {
+        responseText.innerText = JSON.parse(response.response)["msg"];
+      }
     })
+    .catch((error) => {
+      console.error(error);
+      responseText.innerText = "An error occurred while processing the request";
+    });
 
-    console.log(body)
+  resultModal.style.display = "block";
+};
 
-    request.open('POST', api_url)
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.setRequestHeader('Access-Control-Allow-Credentials', 'true');
-    request.setRequestHeader('Access-Control-Max-Age', '1800');
-    request.setRequestHeader('Access-Control-Allow-Origin', '*');
-    request.setRequestHeader('Access-Control-Allow-Headers', '*');
-    request.setRequestHeader('Access-Control-Request-Methods', 'GET,POST');
+const makeRequest = (body) => {
+  const api_url = "http://localhost:1337/convert";
+  const request = new XMLHttpRequest();
 
-    request.send(body)
+  request.open("POST", api_url);
+
+  request.setRequestHeader("Content-Type", "application/json");
+  request.setRequestHeader("Access-Control-Allow-Credentials", "true");
+  request.setRequestHeader("Access-Control-Max-Age", "1800");
+  request.setRequestHeader("Access-Control-Allow-Origin", "*");
+  request.setRequestHeader("Access-Control-Allow-Headers", "*");
+  request.setRequestHeader("Access-Control-Request-Methods", "GET,POST");
+
+  return new Promise((resolve, reject) => {
     request.onload = () => {
-        if (request.status == 200) {
-            responseModal.innerHTML = JSON.parse(request.response)["value"]
-        } else {
-            responseModal.innerHTML = JSON.parse(request.response)["msg"]
-        }
-    }
-}
+      resolve(request);
+    };
+    request.onerror = () => {
+      reject(Error("Network Error"));
+    };
+    request.onloadend = () => {
+      spinner.style.display = "none";
+    };
+    request.send(body);
+  });
+};
 
-const convertButton = document.getElementById('convert')
-convertButton.addEventListener('click', numberConversion)
+const closeModal = () => {
+  resultModal.style.display = "none";
+};
+
+convertButton.addEventListener("click", numberConversion);
+closeButton.addEventListener("click", closeModal);

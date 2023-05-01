@@ -1,59 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
     <title>Document</title>
-</head>
+  </head>
 
-<body class="text-center">
+  <body class="text-center">
     <div class="container-fluid">
-        <main class="w-100 m-auto shadow rounded">
-            <div class="number-conversion">
-                <div class="row text-start mb-4">
-                    <div class="col-md-12">
-                        <label for="numberToBeConverted" class="form-label">Número a ser convertido</label>
-                        <input type="text" class="form-control shadow" id="numberToBeConverted">
-                    </div>
-                </div>
-                <div class="row text-start mb-4">
-                    <div class="col-md-6">
-                        <label for="numberFromBase" class="form-label">Base do número informado</label>
-                        <select class="form-select shadow" aria-label="Base do número" id="numberFromBase">
-                            <option value="DECIMAL">Decimal</option>
-                            <option value="BINARY">Binária</option>
-                            <option value="OCTAL">Octal</option>
-                            <option value="HEXADECIMAL">Hexadecimal</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="numberToBase" class="form-label">Base a ser convertida</label>
-                        <select class="form-select shadow" aria-label="Base do número" id="numberToBase">
-                            <option value="DECIMAL">Decimal</option>
-                            <option value="BINARY">Binária</option>
-                            <option value="OCTAL">Octal</option>
-                            <option value="HEXADECIMAL">Hexadecimal</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md-12">
-                        <button class="btn btn-primary shadow" type="submit" id="convert">Converter</button>
-                    </div>
-                </div>
+      <main class="w-100 m-auto shadow rounded">
+        <div class="number-conversion">
+          <div class="row text-start mb-4">
+            <div class="col-md-12">
+              <label for="numberToBeConverted" class="form-label"
+                >Number to be converted</label
+              >
+              <input
+                type="text"
+                class="form-control shadow"
+                id="numberToBeConverted"
+              />
             </div>
-        </main>
-        <div id="response">
-
+          </div>
+          <div class="row text-start mb-4">
+            <div class="col-md-6">
+              <label for="numberFromBase" class="form-label"
+                >Base of informed number</label
+              >
+              <select
+                class="form-select shadow"
+                aria-label="Base do número"
+                id="numberFromBase"
+              >
+                <option value="DECIMAL">Decimal</option>
+                <option value="BINARY">Binary</option>
+                <option value="OCTAL">Octal</option>
+                <option value="HEXADECIMAL">Hexadecimal</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="numberToBase" class="form-label"
+                >Base to be converted</label
+              >
+              <select
+                class="form-select shadow"
+                aria-label="Base do número"
+                id="numberToBase"
+              >
+                <option value="DECIMAL">Decimal</option>
+                <option value="BINARY">Binary</option>
+                <option value="OCTAL">Octal</option>
+                <option value="HEXADECIMAL">Hexadecimal</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12">
+              <button class="btn btn-primary shadow" type="submit" id="convert">
+                Convert!
+              </button>
+            </div>
+          </div>
         </div>
+      </main>
+
+      <div class="modal" id="resultModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content shadow">
+            <div class="modal-header">
+              <h5 class="modal-title">Result</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                id="close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="spinner-border" role="status" id="spinner">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <span id="response"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
-
+  </body>
 </html>
