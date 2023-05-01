@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  front:
+    build:
+        context: .
+        dockerfile: front.Dockerfile
+    ports:
+      - "8888:8888"
+  api:
+    build:
+        context: .
+        dockerfile: api.Dockerfile
+    ports:
+      - "1337:1337"
