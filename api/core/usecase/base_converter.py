@@ -26,20 +26,20 @@ CONVERSION_BASES = {
     ),
 }
 
+ALLOWED_BASES = ", ".join(CONVERSION_BASES.keys())
+
 
 class BaseConverter:
     @staticmethod
-    def process(from_base, to_base, value):
+    def process(from_base: str, to_base: str, value: str) -> str:
         try:
             from_base_converter = CONVERSION_BASES[from_base]
             to_base_converter = CONVERSION_BASES[to_base]
         except KeyError:
-            allowed_bases = ", ".join(CONVERSION_BASES.keys())
             raise Exception(
-                f"Operation not allowed. Use the following bases for the calculator to work correctly: {allowed_bases}"  # noqa
+                f"Operation not allowed. Use the following bases for the calculator to work correctly: {ALLOWED_BASES}"  # noqa
             )
 
         value_to_decimal = int(value, base=from_base_converter.base)
-        decimal_to_the_new_base = to_base_converter.function(value_to_decimal)
 
-        return decimal_to_the_new_base
+        return to_base_converter.function(value_to_decimal)
